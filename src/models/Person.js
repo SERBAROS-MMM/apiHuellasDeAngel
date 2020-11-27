@@ -7,7 +7,8 @@ const personSchema = new Schema ({
     age: Number,
     birthday: Date,
     typeIdent: String,
-    ident: String
+    ident: String,
+    gender:String
 },{
     timestamps: true,
     versionKey: false,
