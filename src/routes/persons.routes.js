@@ -1,9 +1,12 @@
 import {Router} from 'express'
+import {authJwt} from '../middlewares'
+
 const router = Router()
+
 
 import * as personsCtrl from './../controllers/persons.controller'
 
-router.post('/',personsCtrl.addPerson)
+router.post('/',authJwt.verifyToken,personsCtrl.addPerson)
 
 router.get('/',personsCtrl.listPersons)
 
