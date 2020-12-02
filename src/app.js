@@ -4,6 +4,8 @@ import pkg from '../package.json'
 import cors from 'cors'
 
 import personsRoutes from './routes/persons.routes'
+import authRoutes from './routes/auth.routes'
+import usersRoutes from './routes/users.routes'
 
 const app = express()
 
@@ -22,6 +24,8 @@ app.get('/', (req,res) => {
     })
 })
 
-app.use('/persons',personsRoutes)
+app.use('/api/persons',personsRoutes)
+app.use('/api/auth',authRoutes)
+app.use('/api/users',usersRoutes)
 
 export default app
