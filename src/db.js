@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-mongoose.connect("mongodb://128.199.3.96/huellasdeangeldb",{
+mongoose.connect("mongodb://localhost/huellasdeangeldb",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
