@@ -9,7 +9,7 @@ export const addPerson = async (req, res) => {
         const newPerson = req.body
         const response = await createServ.addPerson(newPerson)
         console.log(response)
-        res.status(201).json(response)
+        res.status(201).json({status:201,response})
     }catch (e){
         res.status(500).json(e)
     }
@@ -20,7 +20,7 @@ export const addPerson = async (req, res) => {
 export const listPersons = async (req, res) => {
     try{        
         const response = await readServ.listPersons()
-        res.status(200).json(response)
+        res.status(200).json({status:200,response})
     }catch (e){
         res.status(500).json(e)
     }
