@@ -19,8 +19,16 @@ export const addPerson = async (req, res) => {
 // READ PERSONS
 export const listPersons = async (req, res) => {
     try{        
-        const response = await readServ.listPersons()
-        res.status(200).json({status:200,response})
+        console.log(req.body.filterPersons )
+        if(req.body.filterPersons !== '' && req.body.filterPersons !==undefined)
+        {
+            const response = await readServ.listPersonsfiltered(req.body.filterPersons)
+            res.status(200).json({status:200,response})
+        }else{
+            const response = await readServ.listPersons()
+            res.status(200).json({status:200,response})
+        }      
+        
     }catch (e){
         res.status(500).json(e)
     }

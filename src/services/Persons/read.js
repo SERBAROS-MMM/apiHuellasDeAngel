@@ -9,3 +9,16 @@ export const personById = async (idPersonData) =>{
     const personById = await Person.findById(idPersonData)
     return personById
 }
+
+export const listPersonsfiltered  = async (FilterData) => {
+    const listPersons = await Person.find()
+
+    const listPersonsfiltered=listPersons.filter((item)=>{
+        const a=(JSON.stringify(item)
+           .toUpperCase()
+           .indexOf(FilterData.toUpperCase()) > -1 ? 1 : 0)
+       return a > 0
+      });
+
+    return listPersonsfiltered        
+}
