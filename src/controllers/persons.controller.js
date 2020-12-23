@@ -19,15 +19,22 @@ export const addPerson = async (req, res) => {
 // READ PERSONS
 export const listPersons = async (req, res) => {
     try{        
-        console.log(req.params )
-        if(req.params.filterPersons !== '' && req.params.filterPersons !==undefined)
-        {
-            const response = await readServ.listPersonsfiltered(req.params.filterPersons)
-            res.status(200).json({status:200,response})
-        }else{
+       
             const response = await readServ.listPersons()
             res.status(200).json({status:200,response})
-        }      
+             
+        
+    }catch (e){
+        res.status(500).json(e)
+    }
+}
+
+export const listPersonsFilter = async (req, res) => {
+    try{        
+        const filter=req.params.filter
+        
+        const response = await readServ.listPersonsfiltered(filter)
+        res.status(200).json({status:200,response})
         
     }catch (e){
         res.status(500).json(e)
