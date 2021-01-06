@@ -8,7 +8,8 @@ const personSchema = new Schema ({
     birthday: Date,
     typeIdent: String,
     ident: String,
-    gender:String
+    gender:String,
+    imageURL: String
 },{
     timestamps: true,
     versionKey: false,
