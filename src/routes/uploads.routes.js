@@ -1,6 +1,7 @@
 import {Router} from 'express'
 import {authJwt} from '../middlewares'
 
+
 const router = Router()
 
 
@@ -42,7 +43,7 @@ const storage = new GridFsStorage({
         if (err) {
           return reject(err);
         }
-        const filename = req.body._id+ path.extname(file.originalname);
+        const filename = (req.body._id === undefined ? file.originalname : req.body._id  + path.extname(file.originalname) );
         const fileInfo = {
           filename: filename,
           bucketName: 'uploads'
@@ -57,6 +58,7 @@ const upload = multer({ storage });
 // @route GET /
 // @desc Loads form
 router.get('/', (req, res) => {
+  console.log('1')
   gfs.files.find().toArray((err, files) => {
     // Check if files
     if (!files || files.length === 0) {
@@ -80,9 +82,10 @@ router.get('/', (req, res) => {
 // @route POST /upload
 // @desc  Uploads file to DB
 router.post('/upload', upload.single('file'), (req, res) => {
+  console.log('2')
   // res.json({ file: req.file });
   console.log(req.file)
-  res.redirect('/API/up');
+  res.redirect('/API/up/');
 });
 
 // @route GET /files
