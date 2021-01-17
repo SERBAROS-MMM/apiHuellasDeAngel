@@ -51,6 +51,17 @@ export const personById = async (req, res) => {
     }
 }
 
+export const personByParameter = async (req, res) => {
+    try{        
+        const parameterPerson = req.params.personParameter
+        const parameter = req.params.parameter
+        const response = await readServ.personByParameter(parameter,parameterPerson)
+        res.status(200).json({status:200,response})
+    }catch (e){
+        res.status(500).json(e)
+    }
+}
+
 //UPDATE PERSONS
 export const updatePersonById = async (req, res) => {
     try{

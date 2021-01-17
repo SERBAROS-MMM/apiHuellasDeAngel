@@ -15,6 +15,8 @@ router.put('/:personId',personsCtrl.updatePersonById)
 
 router.get('/:personId',personsCtrl.personById)
 
+router.get('/:parameter/:personParameter',personsCtrl.personByParameter)
+
 router.delete('/:personId',personsCtrl.deletePersonById)
 
 

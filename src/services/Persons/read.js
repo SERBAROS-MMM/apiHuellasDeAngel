@@ -10,6 +10,13 @@ export const personById = async (idPersonData) =>{
     return personById
 }
 
+export const personByParameter = async (parameterData,parameterPersonData) =>{
+    const query={}
+    query[parameterData]= parameterPersonData
+    const personById = await Person.findOne(query)
+    return personById
+}
+
 export const listPersonsfiltered  = async (FilterData) => {
     const listPersons = await Person.find()
 
