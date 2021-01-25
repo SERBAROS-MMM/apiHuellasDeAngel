@@ -1,24 +1,32 @@
 import Person from './../../models/Person'
 
 export const listPersons  = async () => {
-    const listPersons = await Person.find()
+    const listPersons = await Person.find().populate("fromSite")
     return listPersons        
 }
 
+export const countPersons  = async (queryData) => {
+    const query={}
+    query[queryData.param]= queryData.value
+    console.log(query)
+    const countPersons = await Person.count(query)
+    return countPersons        
+}
+
 export const personById = async (idPersonData) =>{
-    const personById = await Person.findById(idPersonData)
+    const personById = await Person.findById(idPersonData).populate("fromSite")
     return personById
 }
 
 export const personByParameter = async (parameterData,parameterPersonData) =>{
     const query={}
     query[parameterData]= parameterPersonData
-    const personById = await Person.findOne(query)
+    const personById = await Person.findOne(query).populate("fromSite")
     return personById
 }
 
 export const listPersonsfiltered  = async (FilterData) => {
-    const listPersons = await Person.find()
+    const listPersons = await Person.find().populate("fromSite")
 
     const listPersonsfiltered=listPersons.filter((item)=>{
         const a=(JSON.stringify(item)

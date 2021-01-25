@@ -29,6 +29,19 @@ export const listPersons = async (req, res) => {
     }
 }
 
+export const countPersons = async (req, res) => {
+    try{        
+            const query = req.body
+            const response = await readServ.countPersons(query)
+            res.status(200).json({status:200,response})
+             
+        
+    }catch (e){
+        res.status(500).json(e)
+    }
+}
+
+
 export const listPersonsFilter = async (req, res) => {
     try{        
         const filter=req.params.filter

@@ -9,6 +9,8 @@ router.post('/',personsCtrl.addPerson)
 
 router.get('/',personsCtrl.listPersons)
 
+router.post('/count',personsCtrl.countPersons)
+
 router.get('/filter/:filter',personsCtrl.listPersonsFilter)
 
 router.put('/:personId',personsCtrl.updatePersonById)

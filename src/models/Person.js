@@ -9,7 +9,11 @@ const personSchema = new Schema ({
     typeIdent: String,
     ident: String,
     gender:String,
-    imageURL: String
+    imageURL: String,
+    fromSite: {
+        ref: "FromSite",
+        type: Schema.Types.ObjectId
+    },
 },{
     timestamps: true,
     versionKey: false,
