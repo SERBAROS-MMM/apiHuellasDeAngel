@@ -21,4 +21,23 @@ router.get('/fromSite/filter/:filter',fromSitesCtrl.listFromSitesFilter)
 router.delete('/fromSite/:fromSiteId',fromSitesCtrl.deleteFromSiteById)
 
 
+// EVALUATIONS
+
+import * as evaluationsCtrl from './../controllers/evaluations.controller'
+
+router.post('/evaluations/',evaluationsCtrl.addEvaluation)
+
+router.get('/evaluations/',evaluationsCtrl.listEvaluations)
+
+router.put('/evaluations/:evaluationId',evaluationsCtrl.updateEvaluationById)
+
+router.get('/evaluations/:evaluationId',evaluationsCtrl.evaluationById)
+
+router.get('/evaluations/:parameter/:evaluationParameter',evaluationsCtrl.evaluationByParameter)
+
+router.get('/evaluations/filter/:filter',evaluationsCtrl.listEvaluationsFilter)
+
+router.delete('/evaluations/:evaluationId',evaluationsCtrl.deleteEvaluationById)
+
+
 export default router

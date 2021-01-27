@@ -1,7 +1,7 @@
 import Person from './../../models/Person'
 
 export const listPersons  = async () => {
-    const listPersons = await Person.find().populate("fromSite")
+    const listPersons = await Person.find().populate({path: "fromSite",select:'name'})
     return listPersons        
 }
 

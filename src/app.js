@@ -1,7 +1,7 @@
 import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
-import {createRoles} from './libs/initialSetup'
+import {createRoles,createEvaluations} from './libs/initialSetup'
 import methodOverride from 'method-override'
 import bodyParser from 'body-parser'
 import apiRoutes from './routes/api.routes' 
@@ -9,6 +9,8 @@ import path from 'path'
 
 const app = express()
 createRoles()
+createEvaluations()
+
 app.use(cors())
 
 app.use(bodyParser.json());
