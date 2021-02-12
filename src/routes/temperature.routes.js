@@ -6,18 +6,19 @@ const router = Router()
 
 import * as temperaturesCtrl from './../controllers/temperatures.controller'
 
-router.post('/temperature/',temperaturesCtrl.addTemperature)
 
-router.get('/temperature/',temperaturesCtrl.listTemperatures)
+router.post('/',temperaturesCtrl.addTemperature)
 
-router.put('/temperature/:temperatureId',temperaturesCtrl.updateTemperatureById)
+router.get('/',temperaturesCtrl.listTemperatures)
 
-router.get('/temperature/:temperatureId',temperaturesCtrl.temperatureById)
+router.put('/:temperatureId',temperaturesCtrl.updateTemperatureById)
 
-router.get('/temperature/:parameter/:temperatureParameter',temperaturesCtrl.temperatureByParameter)
+router.get('/:temperatureId',temperaturesCtrl.temperatureById)
 
-router.get('/temperature/filter/:filter',temperaturesCtrl.listTemperaturesFilter)
+router.get('/:parameter/:temperatureParameter',temperaturesCtrl.temperatureByParameter)
 
-router.delete('/temperature/:temperatureId',temperaturesCtrl.deleteTemperatureById)
+router.get('/filter/:filter',temperaturesCtrl.listTemperaturesFilter)
+
+router.delete('/:temperatureId',temperaturesCtrl.deleteTemperatureById)
 
 export default router

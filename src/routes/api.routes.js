@@ -5,7 +5,7 @@ import authRoutes from './auth.routes'
 import usersRoutes from './users.routes'
 import uploadsRoutes from './uploads.routes'
 import paramsRoutes from './params.routes'
-import temperatureRoutes from './params.routes'
+import temperatureRoutes from './temperature.routes'
 
 const router = Router()
 

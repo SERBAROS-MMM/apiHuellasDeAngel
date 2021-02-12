@@ -44,6 +44,7 @@ export const countPersons = async (req, res) => {
 
 export const listPersonsFilter = async (req, res) => {
     try{        
+        console.log('filtro')
         const filter=req.params.filter
         
         const response = await readServ.listPersonsfiltered(filter)

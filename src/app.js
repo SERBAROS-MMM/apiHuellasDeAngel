@@ -13,6 +13,7 @@ createEvaluations()
 
 app.use(cors())
 
+app.disable('etag');
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 app.set('views', path.join(__dirname,'views'))

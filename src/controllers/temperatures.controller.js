@@ -7,11 +7,13 @@ import * as deleteServ from '../services/Temperatures/delete'
 export const addTemperature = async (req, res) => { 
     try{
         const newTemperature = req.body
+        
         const response = await createServ.addTemperature(newTemperature)
         console.log(response)
         res.status(201).json({status:201,response})
     }catch (e){
         res.status(500).json(e)
+        console.log(e)
     }
 }
 
@@ -31,9 +33,10 @@ export const listTemperatures = async (req, res) => {
 
 export const listTemperaturesFilter = async (req, res) => {
     try{        
+        console.log("filtro")
         const filter=req.params.filter
-        
         const response = await readServ.listTemperaturesfiltered(filter)
+        console.log(response)
         res.status(200).json({status:200,response})
         
     }catch (e){

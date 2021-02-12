@@ -13,7 +13,7 @@ export const temperatureById = async (idTemperatureData) =>{
 export const temperatureByParameter = async (parameterData,parameterTemperatureData) =>{
     const query={}
     query[parameterData]= parameterTemperatureData
-    const temperatureById = await Temperature.findOne(query)
+    const temperatureById = await Temperature.find(query)
     return temperatureById
 }
 
@@ -24,6 +24,8 @@ export const listTemperaturesfiltered  = async (FilterData) => {
         const a=(JSON.stringify(item)
            .toUpperCase()
            .indexOf(FilterData.toUpperCase()) > -1 ? 1 : 0)
+        
+        console.log(a)
        return a > 0
       });
 
