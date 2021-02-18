@@ -6,6 +6,7 @@ import usersRoutes from './users.routes'
 import uploadsRoutes from './uploads.routes'
 import paramsRoutes from './params.routes'
 import temperatureRoutes from './temperature.routes'
+import newRoutes from './new.routes'
 
 const router = Router()
 
@@ -24,5 +25,6 @@ router.use('/persons',personsRoutes)
 router.use('/up',uploadsRoutes)
 router.use('/params',paramsRoutes)
 router.use('/temperature',temperatureRoutes)
+router.use('/new',newRoutes)
 
 export default router
