@@ -15,9 +15,9 @@ router.put('/:newId',newsCtrl.updateNewById)
 
 router.get('/:newId',newsCtrl.newById)
 
-router.get('/:parameter/:newParameter',newsCtrl.newByParameter)
+router.get('/filter/:filter',newsCtrl.listaNewsFilter)
 
-router.get('/filter/:filter',newsCtrl.listNewsFilter)
+router.get('/:parameter/:newParameter',newsCtrl.newByParameter)
 
 router.delete('/:newId',newsCtrl.deleteNewById)
 

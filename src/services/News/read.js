@@ -13,13 +13,13 @@ export const newById = async (idNewData) =>{
 export const newByParameter = async (parameterData,parameterNewData) =>{
     const query={}
     query[parameterData]= parameterNewData
-    const newById = await New.find(query)
+    const newById = await New.find(query).populate({path: "persons",select:['name','lastName1','lastName2']})
     return newById
 }
 
 export const listNewsfiltered  = async (FilterData) => {
-    const listNews = await New.find()
-
+    const listNews = await New.find().populate({path: "persons",select:['name','lastName1','lastName2']})
+    console.log(listNews,FilterData)
     const listNewsfiltered=listNews.filter((item)=>{
         const a=(JSON.stringify(item)
            .toUpperCase()
