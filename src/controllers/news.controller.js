@@ -31,10 +31,11 @@ export const listNews = async (req, res) => {
     }
 }
 
-export const listNewsFilter = async (req, res) => {
+export const listaNewsFilter = async (req, res) => {
     try{        
         console.log("filtro")
         const filter=req.params.filter
+        console.log(filter)
         const response = await readServ.listNewsfiltered(filter)
         console.log(response)
         res.status(200).json({status:200,response})
@@ -55,9 +56,11 @@ export const newById = async (req, res) => {
 }
 
 export const newByParameter = async (req, res) => {
-    try{        
-        const parameterNew = req.params.newParameter
+    try{      
+        
+        const parameterNew = req.params.newParameter        
         const parameter = req.params.parameter
+        console.log(parameterNew,parameter)
         const response = await readServ.newByParameter(parameter,parameterNew)
         res.status(200).json({status:200,response})
     }catch (e){
